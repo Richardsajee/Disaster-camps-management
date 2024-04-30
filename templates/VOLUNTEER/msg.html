@@ -1,0 +1,23 @@
+{% extends 'VOLUNTEER/volcustomindex.html' %}
+
+{% block body %}
+
+<form action="" method="post"><table width="200" border="1" class="table table-bordered">
+  <tr>
+    <th scope="row">#</th>
+    <td>Message</td>
+    <td>Date</td>
+        {% for i in data %}
+  </tr>
+  <tr>
+    <th scope="row">{{ forloop.counter }}</th>
+    <td>&nbsp;{{ i.message }}</td>
+    <td>&nbsp;{{ i.date }}</td>
+
+  </tr>
+
+       {% endfor %}
+</table>
+</form>
+{% endblock %}
+

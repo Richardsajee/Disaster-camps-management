@@ -1,0 +1,30 @@
+{% extends 'volunteer/volcustomindex.html' %}
+
+{% block body %}
+
+<form action="" method="post"></form>
+{% if i %}
+<table class="table table-bordered">
+
+    <tr>
+    <td>TOTAL SLOT</td>
+         <td>&nbsp;{{ i.totalslot }}</td>
+    </tr>
+    <tr>
+    <td>AVAILABLE SLOT</td>
+        <td>{{ i.currentslot }}</td>
+
+  </tr>
+
+  <tr>
+    <td><p><a href="/vol_slot_edit/{{ i.id }}#login">EDIT</a></p>
+    </td>
+      <td>
+    <p><a href="/VOL_SLOdlt/{{ i.id }}"onclick="return confirm('Are you sure?')">DELETE</a></p></td>
+  </tr>
+
+</table>
+    {% else %}
+    <center><font color="red">No </font> </center>
+{% endif %}
+{% endblock %}

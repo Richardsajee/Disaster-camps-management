@@ -1,0 +1,19 @@
+{% extends 'subadmin/subcustomindex.html' %}
+
+{% block body %}
+
+
+<form action="/sa_msgedit_post/{{ data.id }}" method="post"><table class="table table-bordered">
+     {% csrf_token %}
+  <tr>
+    <th scope="row">Message</th>
+    <td><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" value="{{ data.message }}"required /></td>
+  </tr>
+  <tr>
+    <th colspan="2" scope="row"><div align="center"><input type="submit" name="button" id="button" value="Update"/></div> </th>
+  </tr>
+</table>
+</form>
+{% endblock %}
+

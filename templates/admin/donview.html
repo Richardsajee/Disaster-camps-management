@@ -1,0 +1,26 @@
+{% extends 'admin/customindex.html' %}
+
+{% block body %}
+
+
+<form action="" method="post"><table class="table table-bordered">
+  <tr>
+    <th scope="row">#</th>
+    <td>Name</td>
+    <td>Date</td>
+    <td>Amount</td>
+
+  </tr>
+     {% for i in data %}
+  <tr>
+    <th scope="row">{{ forloop.counter }}</th>
+    <td>{{ i.name }}</td>
+    <td>&nbsp;{{ i.date }}</td>
+    <td>&nbsp;{{ i.amount }}</td>
+
+  </tr>
+     {% endfor %}
+</table>
+</form>
+{% endblock %}
+

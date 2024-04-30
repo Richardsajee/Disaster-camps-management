@@ -1,0 +1,19 @@
+{% extends 'subadmin/index.html' %}
+{% block body %}
+    <table class="table table-bordered">
+    <tr>
+        <td>Sl</td>
+        <td>Volunteer</td>
+        <td>Camp</td>
+        <td>Status</td>
+    </tr>
+        {% for i in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.Volunteer.name }}</td>
+        <td>{{ i.CAMP.name }}</td>
+        <td>{{ i.status }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

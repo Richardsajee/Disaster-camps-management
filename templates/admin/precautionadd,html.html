@@ -1,0 +1,23 @@
+{% extends 'admin/customindex.html' %}
+
+{% block body %}
+
+<form action="/prcaadd_post" method="post" enctype="multipart/form-data"><table class="table table-bordered">
+     {% csrf_token %}
+  <tr>
+    <th scope="row">Description</th>
+    <td>
+      <input type="text" name="textfield" id="textfield"required /></td>
+  </tr>
+  <tr>
+    <th scope="row">File</th>
+    <td>
+        <input type="file" name="fileField" id="fileField" />
+    </td>
+  </tr>
+  <tr>
+    <th colspan="2" scope="row"><div align="center"><input type="submit" name="button" id="button" value="ADD" /></div> </th>
+    </tr>
+</table>
+</form>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'subadmin/subcustomindex.html' %}
+
+{% block body %}
+
+
+<form action="" method="post"></form><table class="table table-bordered">
+  <tr>
+    <th scope="row">#</th>
+    <td>Name</td>
+    <td>Age</td>
+    <td>Address</td>
+    <td>Phone</td>
+    <td>Joining date</td>
+    <td>Dismisal date</td>
+    <td>Manage</td>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <th scope="row">&nbsp;{{ forloop.counter }}</th>
+    <td>&nbsp;{{ i.name }}</td>
+    <td>&nbsp;{{ i.age }}</td>
+    <td>&nbsp;{{ i.housename }}<br>
+    {{ i.place }}<br>
+    {{ i.post }}<br>
+    {{ i.pin }}<br>
+
+    </td>
+    <td>&nbsp;{{ i.phno }}</td>
+    <td>&nbsp;{{ i.joiningdate }}</td>
+    <td>&nbsp;{{ i.dismisaldate }}</td>
+    <td><a href="/VOL_userdb_dlt/{{ i.id }}" onclick="return confirm('Are you sure?')">Delete</a></td>
+  </tr>
+     {% endfor %}
+</table>
+{% endblock %}
+

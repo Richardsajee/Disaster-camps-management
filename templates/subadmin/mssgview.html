@@ -1,0 +1,21 @@
+{% extends 'subadmin/subcustomindex.html' %}
+
+{% block body %}
+
+<form action="" method="post"><table class="table table-bordered">
+  <tr>
+    <th scope="row">#</th>
+    <td>Message</td>
+    <td>Manage</td>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <th scope="row">&nbsp;{{ forloop.counter }}</th>
+    <td>{{ i.message }}</td>
+    <td><p><a href="/sa_msgedit/{{ i.id }}#login">Edit</a></p>
+      <p><a href="/sa_msgdlt/{{ i.id }}" onclick="return confirm('Are you sure?')">Delete</a></p></td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+{% endblock %}

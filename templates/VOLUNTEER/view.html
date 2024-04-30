@@ -1,0 +1,25 @@
+{% extends 'VOLUNTEER/volcustomindex.html' %}
+
+{% block body %}
+<form action="" method="post">
+    <table width="200" border="1" class="table table-bordered">
+  <tr>
+    <th scope="row">#</th>
+    <td>Alert</td>
+   </tr>
+       {% for i in data %}
+
+
+  <tr>
+    <th scope="row">{{ forloop.counter }}</th>
+    <td>{{ i.alert }}</td>
+    <td>{{ i.alert_date }}</td>
+      <td><a href="https://www.google.com/maps?q={{ i.latitude }},{{ i.longitude }}" class="btn btn-warning" style="width: 50%">Locate</a> </td>
+
+
+  </tr>
+     {% endfor %}
+</table>
+</form>
+{% endblock %}
+

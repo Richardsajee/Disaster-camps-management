@@ -1,0 +1,23 @@
+{% extends 'admin/customindex.html' %}
+
+{% block body %}
+<form action="" method="post"><table class="table table-bordered">
+  <tr>
+    <th scope="row">#</th>
+    <td>Camp Name</td>
+    <td>Lattitude&amp;Longitude</td>
+    <td>Volunter</td>
+  </tr>
+        {% for i in data %}
+
+  <tr>
+    <th scope="row">{{ forloop.counter }}</th>
+    <td>&nbsp;{{ i.CAMP.name }}</td>
+    <td>&nbsp;<a href="https://www.google.com/maps?q={{ i.CAMP.latitude }},{{ i.CAMP.longitude }}" class="btn btn-warning" style="width: 50%">Locate</a></td>
+    <td>{{ i.Volunteer.name }}</td>
+
+  </tr>
+     {% endfor %}
+</table>
+</form>
+{% endblock %}

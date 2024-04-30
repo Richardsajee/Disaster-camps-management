@@ -1,0 +1,27 @@
+{% extends 'admin/customindex.html' %}
+
+{% block body %}
+
+<form action="" method="post"><table class="table table-bordered">
+  <tr>
+    <th scope="row">#</th>
+    <td>Descriptiona</td>
+    <td>File</td>
+    <td>Manage</td>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <th scope="row">&nbsp;{{ forloop.counter }}</th>
+    <td>{{ i.description }}</td>
+    <td><video height="200" controls>
+        <source src="{{ i.file }}">
+    </video></td>
+    <td><p><a href="/admin_prc_edit/{{ i.id }}#login">Edit</a></p>
+      <p><a href="/admin_prc_dlt/{{ i.id }}"onclick="return confirm('Are you sure?')">Delete</a></p></td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+
+{% endblock %}
+

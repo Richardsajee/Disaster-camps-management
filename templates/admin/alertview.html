@@ -1,0 +1,28 @@
+{% extends 'admin/customindex.html' %}
+
+{% block body %}
+
+<form action="" method="post">
+    <table class="table table-bordered table-hover">
+  <tr style="background-color: #3CC78F; color: white">
+    <th scope="row">#</th>
+    <td>Alert</td>
+    <td>Date</td>
+    <td>Locate</td>
+    <td>Manage</td>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <th scope="row">{{ forloop.counter }}</th>
+    <td>{{ i.alert }}</td>
+    <td>{{ i.alert_date }}</td>
+      <td><a href="https://www.google.com/maps?q={{ i.latitude }},{{ i.longitude }}" class="btn btn-warning" style="width: 50%">Locate</a> </td>
+    <td><p><a href="/admin_alert_edit/{{ i.id }}#login" class="btn btn-primary" style="width: 50%">Edit</a></p>
+        <br>
+      <p><a href="/admin_alert_dlt/{{ i.id }}" onclick="return confirm('Are you sure?')" style="width: 50%" class="btn btn-danger">Delete</a></p></td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+
+{% endblock %}

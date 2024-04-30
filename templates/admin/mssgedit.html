@@ -1,0 +1,17 @@
+{% extends 'admin/customindex.html' %}
+
+{% block body %}
+
+<form action="/msgedit_post/{{ data.id }}" method="post">{% csrf_token %}<table class="table table-bordered">
+  <tr>
+    <th scope="row">Message</th>
+    <td><label for="textfield"></label>
+        <textarea name="textfield" id="textfield"required>{{ data.message }}</textarea></td>
+  </tr>
+  <tr>
+    <th colspan="2" scope="row"><div align="center"><input type="submit" name="button" id="button" value="UPDATE" /></div> </th>
+  </tr>
+</table>
+</form>
+{% endblock %}
+

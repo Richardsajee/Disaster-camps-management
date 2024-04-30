@@ -1,0 +1,31 @@
+{% extends 'subadmin/subcustomindex.html' %}
+
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered">
+    <tr>
+      <th scope="row">#</th>
+      <td>Complaints</td>
+      <td>Volunteer information</td>
+      <td>Date</td>
+      <td>reply</td>
+      <td>rdate</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <th scope="row">&nbsp;{{ forloop.counter }}</th>
+      <td>&nbsp;{{ i.complaints }}</td>
+      <td>&nbsp;{{ i.VOLUNTEER.name }}</td>
+      <td>&nbsp;{{ i.complaintdate }}</td>
+        {% if i.reply == 'pending' %}
+      <td colspan="2"><div align="center"><a href="/sa_rply/{{ i.id }}#login">Send reply</a></div> </td>
+        {% else %}
+      <td>{{ i.reply }}</td>
+      <td>{{ i.replydate }}</td>
+    {% endif %}
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+{% endblock %}

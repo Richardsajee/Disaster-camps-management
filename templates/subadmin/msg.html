@@ -1,0 +1,19 @@
+{% extends 'subadmin/subcustomindex.html' %}
+
+{% block body %}
+
+<form action="" method="post"><table width="200" border="1">
+  <tr>
+    <th scope="row">#</th>
+    <td>Message</td>
+    {% for i in data %}
+  </tr>
+  <tr>
+    <th scope="row">{{ forloop.counter }}</th>
+    <td>&nbsp;{{ i.message }}</td>
+    
+  </tr>
+       {% endfor %}
+</table>
+</form>
+{% endblock %}

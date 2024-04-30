@@ -1,0 +1,25 @@
+{% extends 'subadmin/subcustomindex.html' %}
+
+{% block body %}
+
+
+<form action="" method="post"><table class="table table-bordered">
+  <tr>
+    <th scope="row">#</th>
+    <td>Camp Name</td>
+     <td>Volunteer</td>
+    <td>Manage</td>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <th scope="row">{{ forloop.counter }}</th>
+    <td>{{ i.name }}</td>
+    <td><a href="/subadmin_volview/{{ i.id }}#login">Click Here</a></td>
+    <td><p><a href="/sa_campedit/{{ i.id }}#login">Edit</a></p>
+      <p><a href="/sa_campdlt/{{ i.id }}" onclick="return confirm('Are you sure?')">Delete</a></p>
+      <p><a href="https://maps.google.com/?q={{ i.latitude }},{{ i.longitude }}" target="_blank">Locate</a></p></td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+{% endblock %}

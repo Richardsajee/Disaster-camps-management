@@ -1,0 +1,33 @@
+{% extends 'admin/customindex.html' %}
+
+{% block body %}
+
+<form action="" method="post"><table class="table table-bordered">
+  <tr>
+    <th scope="row">#</th>
+    <td>Name</td>
+    <td>Email</td>
+    <td>Phone</td>
+      <td>place</td>
+
+    <td>Manage</td>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <th scope="row">&nbsp;{{ forloop.counter }}</th>
+    <td>{{ i.name }}</td>
+    <td>{{ i.email }}</td>
+    <td>&nbsp;{{ i.phone }}</td>
+      <td>&nbsp;{{ i.place }}</td>
+
+    <td><p><a href="/admin_subadmin_edit/{{ i.id }}#login">Edit</a></p>
+      <p><a href="/admin_subadmin_dlt/{{ i.id }}"onclick="return confirm('Are you sure?')">Delete</a></p>
+{#    <p><a href="/admin_msg_add#login">Message</a></p>#}
+    </td>
+
+    </tr>
+    {% endfor %}
+</table>
+</form>
+{% endblock %}
+

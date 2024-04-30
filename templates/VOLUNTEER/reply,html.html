@@ -1,0 +1,32 @@
+{% extends 'volunteer/volcustomindex.html' %}
+
+{% block body %}
+
+
+<form action="" method="post"></form><table class="table table-bordered">
+
+  <tr>
+    <th scope="row">#</th>
+    <td>Complaint</td>
+    <td>Date</td>
+    <td>Reply</td>
+    <td>Date</td>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <th scope="row">&nbsp;{{ forloop.counter }}</th>
+    <td>{{ i.complaints }}</td>
+    <td>{{ i.complaintdate }}</td>
+      {% if i.reply == 'pending' %}
+      <td colspan="2"><div align="center">
+      <pre><font color="red">{{ i.VOLUNTEER.SUBADMIN.name }} not replied yet. Please wait for reply </font></pre>
+      </div> </td>
+      {% else %}
+    <td>{{ i.reply }}</td>
+    <td>{{ i.replydate }}</td>
+  {% endif %}
+  </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+

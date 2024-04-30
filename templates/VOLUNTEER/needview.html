@@ -1,0 +1,33 @@
+{% extends 'volunteer/volcustomindex.html' %}
+
+{% block body %}
+
+
+
+<form action="" method="post"></form>
+<table class="table table-bordered">
+  <tr>
+    <th scope="row">#</th>
+    <td>List</td>
+    <td>Quantity</td>
+    <td>Date</td>
+    <td>MANAGE</td>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <th scope="row">&nbsp;{{ forloop.counter }}</th>
+    <td>&nbsp;{{ i.list }}</td>
+    <td>&nbsp;{{ i.quantityt }}</td>
+    <td>&nbsp;{{ i.date }}</td>
+      {% if i.status == 'pending' %}
+    <td><p><a href="/vol_need_edit/{{ i.id }}#login">EDIT</a></p>
+    <p><a href="/VOL_needdlt/{{ i.id }}" onclick="return confirm('Are you sure?')">DELETE</a></p>
+    <p><a href="/filled/{{ i.id }}" onclick="return confirm('Are you sure?')">SET AS FILLED</a></p>
+    </td>
+          {% else %}
+          <td><font color="green"><b>Filled</b></font> </td>
+  {% endif %}
+  </tr>
+    {% endfor %}
+</table>
+{% endblock %}

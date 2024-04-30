@@ -1,0 +1,35 @@
+{% extends 'subadmin/index.html' %}
+{% block body %}
+    <form method="post" action="/sub_volunteer_allocation_post">
+    <table class="table table-bordered">
+    <tr>
+        <td>Select Volunteer</td>
+        <td>
+            <select name="v">
+                <option>Select a volunteer</option>
+                {% for i in volunteer %}
+                <option value="{{ i.id }}">{{ i.name }}</option>
+                {% endfor %}
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Select camp</td>
+        <td>
+
+            <select name="c">
+                <option>Select a camp</option>
+                {% for i in camp %}
+                <option value="{{ i.id }}">{{ i.name }}</option>
+                {% endfor %}
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="Allocate"></td>
+    </tr>
+    </table>
+    </form>
+
+
+{% endblock %}

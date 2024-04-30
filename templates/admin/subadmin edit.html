@@ -1,0 +1,35 @@
+{% extends 'admin/customindex.html' %}
+
+{% block body %}
+
+<form action="/subedit_post/{{ data.id }}" method="post">
+    {% csrf_token %}
+    <table class="table table-bordered">
+  <tr>
+    <th scope="row">Name</th>
+    <td>
+      <input type="text" name="textfield" id="textfieldvalue="value="{{ data.name }}"required/></td>
+  </tr>
+            <tr>
+    <th scope="row">Place</th>
+    <td>
+      <input type="text" name="textfield4" id="textfield4" value="{{ data.place }}"required /></td>
+  </tr>
+  <tr>
+    <th scope="row">Email</th>
+    <td>
+      <input type="text" name="textfield2" id="textfield2"value="{{ data.email }}" readonly /></td>
+  </tr>
+  <tr>
+    <th scope="row">Phone number</th>
+    <td>
+      <input type="text" name="textfield3" id="textfield3"value="{{ data.phone }}"required /></td>
+  </tr>
+
+  <tr>
+    <th colspan="2" scope="row"><div align="center"><input type="submit" name="button" id="button" value="Update" /></div> </th>
+    </tr>
+</table>
+</form>
+{% endblock %}
+

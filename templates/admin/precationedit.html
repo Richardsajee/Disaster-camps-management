@@ -1,0 +1,27 @@
+{% extends 'admin/customindex.html' %}
+
+{% block body %}
+
+<form action="/prcedit_post/{{ data.id }}" method="post" enctype="multipart/form-data"><table class="table table-bordered">
+    {% csrf_token %}
+  <tr>
+    <th scope="row">Description</th>
+    <td>
+      <input type="text" name="textfield" id="textfield"required value="{{ data.description }}" /></td>
+  </tr>
+    <tr>
+        <td colspan="2"><video height="200" controls>
+        <source src="{{ data.file }}">
+    </video></td>
+    </tr>
+  <tr>
+    <th scope="row">File</th>
+    <td>
+    <input type="file" name="fileField" id="fileField" /></td>
+  </tr>
+  <tr>
+    <th colspan="2" scope="row"><div align="center"><input type="submit" name="button" id="button" value="Update" /></div> </th>
+    </tr>
+</table>
+</form>
+{% endblock %}
